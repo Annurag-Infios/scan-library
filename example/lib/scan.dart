@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:scan/scan.dart';
+import 'package:flutter_scan_plus/scan.dart';
 
 class ScanPage extends StatelessWidget {
   ScanController controller = ScanController();

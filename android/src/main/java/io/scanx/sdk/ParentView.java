@@ -1,4 +1,4 @@
-package com.chavesgu.scan;
+package io.scanx.sdk;
 
 import android.content.Context;
 import android.widget.RelativeLayout;

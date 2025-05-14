@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class Scan {
-  static const MethodChannel _channel = const MethodChannel('chavesgu/scan');
+  static const MethodChannel _channel = const MethodChannel('scanx/sdk');
 
   static Future<String> get platformVersion async {
     final String version = await _channel.invokeMethod('getPlatformVersion');
@@ -42,7 +42,7 @@ class _ScanViewState extends State<ScanView> {
   Widget build(BuildContext context) {
     if (Platform.isIOS) {
       return UiKitView(
-        viewType: 'chavesgu/scan_view',
+        viewType: 'scanx/scan_view',
         creationParamsCodec: StandardMessageCodec(),
         creationParams: {
           "r": widget.scanLineColor.red,
@@ -57,7 +57,7 @@ class _ScanViewState extends State<ScanView> {
       );
     } else {
       return AndroidView(
-        viewType: 'chavesgu/scan_view',
+        viewType: 'scanx/scan_view',
         creationParamsCodec: StandardMessageCodec(),
         creationParams: {
           "r": widget.scanLineColor.red,
@@ -74,7 +74,7 @@ class _ScanViewState extends State<ScanView> {
   }
 
   void _onPlatformViewCreated(int id) {
-    _channel = MethodChannel('chavesgu/scan/method_$id');
+    _channel = MethodChannel('scanx/sdk/method_$id');
     _channel?.setMethodCallHandler((MethodCall call) async {
       if (call.method == 'onCaptured') {
         if (widget.onCapture != null)
